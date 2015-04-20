@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger, OLCreditCardType) {
     OLCreditCardTypeInvalid
 };
 
-@interface Luhn : NSObject
+@interface HQLuhn : NSObject
 
 + (OLCreditCardType) typeFromString:(NSString *) string;
 + (BOOL) validateString:(NSString *) string forType:(OLCreditCardType) type;
@@ -27,7 +27,7 @@ typedef NS_ENUM(NSInteger, OLCreditCardType) {
 
 @end
 
-@interface NSString (Luhn)
+@interface NSString (HQLuhn)
 
 - (BOOL) isValidCreditCardNumber;
 - (OLCreditCardType) creditCardType;

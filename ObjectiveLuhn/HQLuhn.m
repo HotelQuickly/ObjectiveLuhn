@@ -6,16 +6,16 @@
 //  Copyright (c) 2012 Max Kramer. All rights reserved.
 //
 
-#import "Luhn.h"
+#import "HQLuhn.h"
 
-@implementation NSString (Luhn)
+@implementation NSString (HQLuhn)
 
 - (BOOL) isValidCreditCardNumber {
     return [Luhn validateString:self];
 }
 
 - (OLCreditCardType) creditCardType {
-    return [Luhn typeFromString:self];
+    return [HQLuhn typeFromString:self];
 }
 
 @end
@@ -36,7 +36,7 @@
 
 @end
 
-@implementation Luhn
+@implementation HQLuhn
 
 + (OLCreditCardType) typeFromString:(NSString *) string {
     BOOL valid = [string isValidCreditCardNumber];
@@ -95,7 +95,7 @@
 }
 
 + (BOOL) validateString:(NSString *)string forType:(OLCreditCardType)type {
-    return [Luhn typeFromString:string] == type;
+    return [HQLuhn typeFromString:string] == type;
 }
 
 + (BOOL)validateString:(NSString *)string {
