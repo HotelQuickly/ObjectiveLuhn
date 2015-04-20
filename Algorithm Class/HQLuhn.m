@@ -11,7 +11,7 @@
 @implementation NSString (HQLuhn)
 
 - (BOOL) isValidCreditCardNumber {
-    return [Luhn validateString:self];
+    return [HQLuhn validateString:self];
 }
 
 - (OLCreditCardType) creditCardType {
@@ -54,7 +54,7 @@
     __block OLCreditCardType type = OLCreditCardTypeInvalid;
     [enums enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         OLCreditCardType _type = [obj integerValue];
-        NSPredicate *predicate = [Luhn predicateForType:_type];
+        NSPredicate *predicate = [HQLuhn predicateForType:_type];
         BOOL isCurrentType = [predicate evaluateWithObject:formattedString];
         if (isCurrentType) {
             type = _type;
